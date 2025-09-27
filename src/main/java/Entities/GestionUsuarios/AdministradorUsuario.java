@@ -1,5 +1,4 @@
 package Entities.GestionUsuarios;
-
 import java.util.Date;
 
 public class AdministradorUsuario extends Usuario{
@@ -11,7 +10,8 @@ public class AdministradorUsuario extends Usuario{
             String password_hash,
             String role,
             Date fecha_registro,
-            String estado_cuenta
+            String estado_cuenta,
+            String nivel_acceso
     ){
         super(
                 id,
@@ -22,6 +22,7 @@ public class AdministradorUsuario extends Usuario{
                 fecha_registro,
                 estado_cuenta
         );
+        this.nivel_acceso = nivel_acceso;
     }
 
     // Getters and Setters
