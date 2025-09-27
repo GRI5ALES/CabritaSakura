@@ -7,9 +7,9 @@ public class Carrito {
     private LocalDate fecha_creacion;
 
 
-    public Carrito(int id){
+    public Carrito(int id, LocalDate fecha_creacion) {
         this.id = id;
-        this.fecha_creacion = LocalDate.now();
+        this.fecha_creacion = fecha_creacion;
     }
 
     public int getId() {
