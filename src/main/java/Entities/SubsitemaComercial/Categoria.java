@@ -38,4 +38,9 @@ public class Categoria {
     public void anadirProducto(){
 
     }
+
+    @Override
+    public String toString() {
+        return id + " - " + nombre + " (" + descripcion + ")";
+    }
 }

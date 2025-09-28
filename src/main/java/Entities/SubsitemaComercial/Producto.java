@@ -67,4 +67,10 @@ public class Producto {
         this.categoria = categoria;
     }
 
+    @Override
+    public String toString() {
+        return id + " - " + nombre + " | " + descripcion + " | stock: " + unidades_stock +
+                " | fecha: " + fecha_lanzamiento + " | categoria: " + categoria.getNombre();
+    }
+
 }
