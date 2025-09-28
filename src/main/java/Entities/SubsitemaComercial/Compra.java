@@ -1,18 +1,22 @@
 package Entities.SubsitemaComercial;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Compra {
     private int id;
     private LocalDate fecha;
     private double total;
     private String estado;
+    private List<LineaCompra> lineas;
 
     public Compra(String estado, double total, LocalDate fecha, int id) {
         this.estado = estado;
         this.total = total;
         this.fecha = fecha;
         this.id = id;
+        this.lineas = new ArrayList<>();
     }
 
 
@@ -48,7 +52,17 @@ public class Compra {
         this.estado = estado;
     }
 
-    public void anadirLineaCompra(){
+    public List<LineaCompra> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(List<LineaCompra> lineas) {
+        this.lineas = lineas;
+    }
+
+    public void anadirLineaCompra(LineaCompra linea){
+
+        this.lineas.add(linea);
 
     }
 }

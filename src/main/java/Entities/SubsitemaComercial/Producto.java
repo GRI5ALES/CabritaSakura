@@ -9,14 +9,17 @@ public class Producto {
     private int unidades_stock;
     private LocalDate fecha_lanzamiento;
     private Categoria categoria;
+    private int precio_unitario;
 
-    public Producto(int id, String nombre, String descripcion, int unidades_stock, LocalDate fecha_lanzamiento, Categoria categoria) {
+    public Producto(int id, String nombre, String descripcion, int unidades_stock, LocalDate fecha_lanzamiento,
+                    Categoria categoria, int precio_unitario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.unidades_stock = unidades_stock;
         this.fecha_lanzamiento = fecha_lanzamiento;
         this.categoria = categoria;
+        this.precio_unitario = precio_unitario;
     }
 
     public int getId() {
@@ -65,6 +68,14 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public int getPrecio_unitario() {
+        return precio_unitario;
+    }
+
+    public void setPrecio_unitario(int precio_unitario) {
+        this.precio_unitario = precio_unitario;
     }
 
     @Override
