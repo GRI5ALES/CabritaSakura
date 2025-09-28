@@ -26,7 +26,7 @@ public class main {
 
         });
 
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         List<Categoria> categorias = new ArrayList<>(); //List for categories
         List<Producto> productos = new ArrayList<>(); //List for products
         List<Carrito> carritos = new ArrayList<>(); // List for Shopping carts
@@ -314,16 +314,6 @@ public class main {
         }
 
         sc.close();
-
-
-
-
-
-
-
-
-
-
-
+        */
     }
 }

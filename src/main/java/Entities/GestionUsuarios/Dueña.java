@@ -13,7 +13,7 @@ public class Dueña extends Usuario {
             String email,
             String password_hash,
             String role,
-            Date fecha_registro,
+            String fecha_registro,
             String estado_cuenta
     ) {
         super(

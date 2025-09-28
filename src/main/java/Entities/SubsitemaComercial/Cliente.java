@@ -2,7 +2,6 @@ package Entities.SubsitemaComercial;
 
 import Entities.GestionUsuarios.Usuario;
 
-import java.util.Date;
 import java.util.List;
 
 public class Cliente extends Usuario {
@@ -11,13 +10,16 @@ public class Cliente extends Usuario {
     private List<MetodoPago> metodos_pago;
 
 
-    public Cliente(int id, String nombre, String email, String password_hash, String role, Date fecha_registro, String estado_cuenta, String direccion_envio, int telefono, List<MetodoPago> metodos_pago) {
+    public Cliente(int id, String nombre, String email, String password_hash, String role, String fecha_registro, String estado_cuenta, String direccion_envio, int telefono, List<MetodoPago> metodos_pago) {
         super(id, nombre, email, password_hash, role, fecha_registro, estado_cuenta);
         this.direccion_envio = direccion_envio;
         this.telefono = telefono;
         this.metodos_pago = metodos_pago;
     }
 
+    public Cliente(String nombre, String email, String password_hash, String role) {
+        super(nombre, email, password_hash,  role);
+    }
 
     public String getDireccion_envio() {
         return direccion_envio;
@@ -53,5 +55,13 @@ public class Cliente extends Usuario {
 
     public void asignarMetodoPago(){
 
+    }
+
+    public String getPassword() {
+        return this.getPassword_hash();
+    }
+
+    public String getInfo(){
+        return "Nombre: " + this.getNombre() + "\nemail: " + this.getEmail() + "\npassword: " + this.getPassword_hash();
     }
 }

@@ -1,3 +1,5 @@
+import pruebas.bd_provisional;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,6 +30,7 @@ public class vistas {
     private JPanel ImgPanel;
     private JPanel detalles;
     private JLabel imgLabel;
+    private JPanel Admin;
 
     public vistas() {
         LoginCambiarRegister.addActionListener(new ActionListener() {
@@ -48,13 +51,37 @@ public class vistas {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String role = bd_provisional.verificarCredencialesLogin(LoginUsuarioTextField.getText(), LoginContrasenaPasswordField.getText());
+                System.out.println(role);
+                if ("USER".equals(role)) {
+                    mostrarPanel("Usuario");
+                }
+                else if ("ADMIN".equals(role)) {
+                    mostrarPanel("Admin");
+                }
+                else {
+                    System.out.println("eror, rol incorrecto");
+                }
+            }
+        });
+
+        RegisterEnviarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bd_provisional.crearClienteRegister(
+                        RegisterUsuarioTextField.getText(),
+                        RegisterContrasenaPasswordField.getText(),
+                        RegisterEmailTextField.getText()
+                );
                 mostrarPanel("Usuario");
             }
         });
+
         imgLabel.setPreferredSize(new Dimension(200, 200));
         ImageIcon icono = new ImageIcon("src/main/img/landscape-placeholder.jpg");
         Image img = icono.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         imgLabel.setIcon(new ImageIcon(img));
+
     }
 
     private void mostrarPanel(String ventana){
@@ -62,9 +89,7 @@ public class vistas {
         cl.show(Vistas, ventana);
     }
 
-    public JPanel getVistas() { return Vistas; }
-
-
-
-
+    public JPanel getVistas() {
+        return Vistas;
+    }
 }

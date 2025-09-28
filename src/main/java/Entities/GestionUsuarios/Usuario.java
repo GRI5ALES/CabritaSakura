@@ -8,7 +8,7 @@ public abstract class Usuario {
     private String email;
     private String password_hash;
     private String role;
-    private Date fecha_registro;
+    private String fecha_registro;
     private String estado_cuenta;
 
     public Usuario(
@@ -17,7 +17,7 @@ public abstract class Usuario {
             String email,
             String password_hash,
             String role,
-            Date fecha_registro,
+            String fecha_registro,
             String estado_cuenta
     ){
         this.id = id;
@@ -27,6 +27,13 @@ public abstract class Usuario {
         this.role = role;
         this.fecha_registro = fecha_registro;
         this.estado_cuenta = estado_cuenta;
+    }
+
+    public Usuario(String nombre, String email, String password_hash, String role) {
+        this.nombre = nombre;
+        this.email = email;
+        this.password_hash = password_hash;
+        this.role = role;
     }
 
     // Getters and Setters
@@ -71,11 +78,11 @@ public abstract class Usuario {
         this.role = role;
     }
 
-    public Date getFecha_registro() {
+    public String getFecha_registro() {
         return fecha_registro;
     }
 
-    public void setFecha_registro(Date fecha_registro) {
+    public void setFecha_registro(String fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
 

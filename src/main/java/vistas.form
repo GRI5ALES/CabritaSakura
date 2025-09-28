@@ -300,6 +300,14 @@
           </grid>
         </children>
       </grid>
+      <grid id="6664c" binding="Admin" layout-manager="CardLayout" hgap="0" vgap="0">
+        <constraints>
+          <card name="Admin"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </grid>
     </children>
   </grid>
 </form>
