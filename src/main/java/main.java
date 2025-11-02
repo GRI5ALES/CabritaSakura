@@ -5,15 +5,19 @@ import Entities.SubsitemaComercial.Carrito;
 import Entities.SubsitemaComercial.Compra;
 import Entities.SubsitemaComercial.LineaCompra;
 import Entities.SubsitemaComercial.LineaCarrito;
+import pruebas.bd_provisional;
 
-import javax.swing.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.*;
+
 public class main {
     public static void main(String[] args) {
+
+        bd_provisional.pruebas();
        SwingUtilities.invokeLater(() -> {
             vistas form = new vistas();
 
@@ -23,7 +27,6 @@ public class main {
             frame.pack();
             frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             frame.setVisible(true);
-
         });
 
         /*Scanner sc = new Scanner(System.in);

@@ -1,7 +1,6 @@
 package pruebas;
 
-import Entities.SubsitemaComercial.Cliente;
-import Entities.SubsitemaComercial.MetodoPago;
+import Entities.SubsitemaComercial.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +8,11 @@ import java.util.List;
 
 public class bd_provisional {
     private static List<Cliente> clientes = new ArrayList<>();
+    private static List<Categoria> categorias = new ArrayList<>();
+    private static List<Producto> productos = new ArrayList<>();
+    private static List<Carrito> carritos = new ArrayList<>();
+    private static List<Compra> compras = new ArrayList<>();
+
     public static void pruebas(){
         clientes.add(
                 new Cliente(
@@ -19,7 +23,7 @@ public class bd_provisional {
                 ));
         clientes.add(
                 new Cliente(
-                        2, "María Gómez", "maria.gomez@example.com", "mypass123", "ADMIN",
+                        2, "Maria Gomez", "maria.gomez@example.com", "mypass123", "ADMIN",
                         "2025-02-01", "ACTIVA",
                         "Carrera 10 #20-30, Medellín", 310987654,
                         Arrays.asList(
@@ -54,4 +58,19 @@ public class bd_provisional {
         clientes.add(cliente);
         System.out.println(cliente.getInfo());
     }
+    public static void crearCategoria(Categoria categoria){
+        categorias.add(categoria);
+    }
+
+    public static Categoria buscarCategoria(String nombre_categoria){
+        return categorias.stream()
+                .filter(categoria -> categoria.getNombre().equalsIgnoreCase(nombre_categoria))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static void crearProducto(Producto producto){
+        productos.add(producto);
+    }
+
 }
