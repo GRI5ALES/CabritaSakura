@@ -1,4 +1,3 @@
-
 import pruebas.bd_provisional;
 import vistas.vistas;
 
@@ -8,7 +7,7 @@ public class main {
     public static void main(String[] args) {
 
         bd_provisional.pruebas();
-       SwingUtilities.invokeLater(() -> {
+        SwingUtilities.invokeLater(() -> {
             vistas form = new vistas();
 
             JFrame frame = new JFrame("Cabrita Sakura");

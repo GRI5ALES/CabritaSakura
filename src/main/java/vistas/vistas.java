@@ -1,8 +1,8 @@
 package vistas;
 
-import Entities.SubsitemaComercial.Categoria;
-import Entities.SubsitemaComercial.Producto;
-import net.miginfocom.layout.ContainerWrapper;
+import Model.Categoria;
+import Model.Producto;
+//import net.miginfocom.layout.ContainerWrapper;
 import pruebas.bd_provisional;
 
 import javax.swing.*;
@@ -181,7 +181,8 @@ public class vistas {
         AgregarCategoria_agregarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Categoria categoria = new Categoria(categoria_id_inicial++, AgregarCategoria_nombreTextField.getText(),  AgregarCategoria_descripcionTextField.getText());
+                Categoria categoria = new Categoria(categoria_id_inicial++, AgregarCategoria_nombreTextField.getText(),
+                        AgregarCategoria_descripcionTextField.getText());
                 bd_provisional.crearCategoria(categoria);
             }
         });
