@@ -6,12 +6,13 @@ public class LineaCompra {
     private double subtotal;
     private Producto producto;
 
-    public LineaCompra(int cantidad, double precio_unitario, double subtotal,Producto p) {
+    public LineaCompra(int cantidad, Producto p) {
         this.cantidad = cantidad;
-        this.precio_unitario = precio_unitario;
-        this.subtotal = subtotal;
         this.producto = p;
     }
+
+
+
 
     public int getCantidad() {
         return cantidad;
@@ -25,16 +26,16 @@ public class LineaCompra {
         return precio_unitario;
     }
 
-    public void setPrecio_unitario(double precio_unitario) {
-        this.precio_unitario = precio_unitario;
+    public void setPrecio_unitario() {
+        this.precio_unitario = producto.getPrecio_unitario();
     }
 
     public double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
+    public void setSubtotal() {
+        this.subtotal = precio_unitario * cantidad;
     }
 
     public Producto getProducto() {
@@ -44,9 +45,4 @@ public class LineaCompra {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-
-    public void anadirProducto(){
-
-    }
-
 }

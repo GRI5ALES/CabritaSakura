@@ -1,6 +1,8 @@
+package vistas;
 
 import Entities.SubsitemaComercial.Categoria;
 import Entities.SubsitemaComercial.Producto;
+import net.miginfocom.layout.ContainerWrapper;
 import pruebas.bd_provisional;
 
 import javax.swing.*;
@@ -35,7 +37,6 @@ public class vistas {
     private JCheckBox checkBox1;
     private JButton pagarButton;
     private JButton Admin_agregarProductoButton;
-    private JList list1;
     private JButton Admin_agregarCategoriaButton;
     private JButton Admin_principalButton1;
     private JTextField AgregarCategoria_nombreTextField;
@@ -56,11 +57,21 @@ public class vistas {
     private JButton AgregarCategoria_agregarCategoriaButton;
     private JButton AgregarCategoria_agregarProductoButton;
     private JButton AgregarCategoria_principalButton;
+    private JPanel ContenedorProductos;
+    private JScrollPane usuario_scrollPane;
 
     public int categoria_id_inicial = 0;
     public int producto_id_inicial = 0;
 
     public vistas() {
+            ContenedorProductos.setLayout(new BoxLayout(ContenedorProductos, BoxLayout.Y_AXIS));
+            ContenedorProductos.setBackground(Color.WHITE);
+
+            usuario_scrollPane.getVerticalScrollBar().setUnitIncrement(16); // scroll suave
+
+            // Si tienes un panel UsuarioCompradorVistas, añade ahí el scroll
+            UsuarioCompradorVistas.setLayout(new BorderLayout());
+            UsuarioCompradorVistas.add(usuario_scrollPane, BorderLayout.CENTER);
 
 
         LoginCambiarRegister.addActionListener(new ActionListener() {
@@ -84,6 +95,7 @@ public class vistas {
                 System.out.println(role);
                 if ("USER".equals(role)) {
                     mostrarPanel("Usuario");
+                    mostrarProductos();
                 }
                 else if ("ADMIN".equals(role)) {
                     mostrarPanel("Admin");
@@ -106,10 +118,6 @@ public class vistas {
             }
         });
 
-        imgLabel.setPreferredSize(new Dimension(200, 200));
-        ImageIcon icono = new ImageIcon("src/main/img/landscape-placeholder.jpg");
-        Image img = icono.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-        imgLabel.setIcon(new ImageIcon(img));
         AgregarCategoria_agregarCategoriaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -219,4 +227,23 @@ public class vistas {
     public JPanel getVistas() {
         return Vistas;
     }
+
+    private void mostrarProductos() {
+        ContenedorProductos.removeAll();
+
+        for (Producto p : bd_provisional.obtenerProductos()) {
+            productoPanel panel = new productoPanel(p);
+
+            // IMPORTANTE: forzamos alineación izquierda y añadimos separación
+            panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+            panel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+
+            ContenedorProductos.add(panel);
+            ContenedorProductos.add(Box.createRigidArea(new Dimension(0, 8))); // espacio entre tarjetas
+        }
+
+        ContenedorProductos.revalidate();
+        ContenedorProductos.repaint();
+    }
+
 }

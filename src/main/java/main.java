@@ -1,16 +1,6 @@
 
-import Entities.SubsitemaComercial.Categoria;
-import Entities.SubsitemaComercial.Producto;
-import Entities.SubsitemaComercial.Carrito;
-import Entities.SubsitemaComercial.Compra;
-import Entities.SubsitemaComercial.LineaCompra;
-import Entities.SubsitemaComercial.LineaCarrito;
 import pruebas.bd_provisional;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import vistas.vistas;
 
 import javax.swing.*;
 
